@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumActions {
 
-    public static int DEFAULT_ELEMENT_TIMEOUT = 10;
-    public static int DEFAULT_PAGE_TIMEOUT = 60;
+    public static final int DEFAULT_ELEMENT_TIMEOUT = 10;
+    public static final int DEFAULT_PAGE_TIMEOUT = 60;
 
     public static void setUpPage(WebDriver driver, String link) {
         driver.get(link);
@@ -49,6 +49,7 @@ public class SeleniumActions {
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_ELEMENT_TIMEOUT);
 
         wait.until(new ExpectedCondition<Boolean>() {
+            @Override
             public Boolean apply(WebDriver driver) {
                 return driver.findElement(locator).getText().length() != 0;
             }
@@ -60,6 +61,7 @@ public class SeleniumActions {
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_PAGE_TIMEOUT);
 
         wait.until(new ExpectedCondition<Boolean>() {
+            @Override
             public Boolean apply(WebDriver driver) {
                 return driver.getTitle().contains(expectedTitle);
             }

@@ -21,32 +21,23 @@ public class MainGooglePage extends TemplatePage {
     }
 
     public void clickOnNext() {
-        waitUntilElementAppear(btnNext);
-        click(btnNext);
-        LOG.info("Click on obj={}", btnNext);
+        clickWithWaiting(btnNext);
     }
 
     public void clickSignIn() {
-        waitUntilElementAppear(btnSignIn);
-        click(btnSignIn);
+        clickWithWaiting(btnSignIn);
     }
 
     public void open() {
         setUpPage(URL);
-        waitUntilElementAppear(edtEmail);
-        LOG.info("Page with title={} is opened", getTitle());
     }
 
     public void setEmail(final String email) {
-        waitUntilElementAppear(edtEmail);
-        clear(edtEmail);
-        sendKey(edtEmail, email);
+        sendKeyWithClearingAndWaiting(edtEmail, email);
     }
 
     public void setPassword(final String password) {
-        waitUntilElementAppear(edtPassword);
-        clear(edtPassword);
-        sendKey(edtPassword, password);
+        sendKeyWithClearingAndWaiting(edtPassword, password);
     }
 
     public MyAccountGooglePage waitForMyAccountGooglePage() {
